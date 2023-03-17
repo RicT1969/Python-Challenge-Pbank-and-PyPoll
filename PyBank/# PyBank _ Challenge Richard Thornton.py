@@ -1,13 +1,10 @@
-# import Modules
+#PyBank
 
+# import Modules
 import os
 import csv
 
-# Specify the csv.file path
-
-budget_csv = os.path.join("Resources", "budget_data.csv")
-
-#set variables (counters to 0) and list
+#Declare variables
 row_count = 0
 net_profit = 0
 total_change = 0
@@ -20,10 +17,18 @@ max_decrease = 0
 max_increase_month = ""
 max_decrease_month = ""
 
+
+# Specify the csv.file path
+
+budget_csv = os.path.join("resources", "budget_data.csv")
+
 # Reading using CSV module
 with open(budget_csv) as csvfile:
 
-    # CSV reader specifies delimiter and variable that holds content
+    #Check path works
+    #print(csvfile)
+
+    # CSV reader with delimiter and variable that holds content
     csvreader = csv.reader(csvfile, delimiter=',')
   
     #Exclude header from the count of entries.#This means that we will need to add 1 to the count, 
@@ -37,9 +42,6 @@ with open(budget_csv) as csvfile:
         
         #Count number of records. Note - we have excluded the headers, so the count will begin at 0 for the first line. 
         #i.e. 'n' records returns a count of 'n-1'. To get correct count add 1.
-
-        net_profit
-
         row_count = row_count+1
 
         #Calulate total profit using the net_profit variable as the counter

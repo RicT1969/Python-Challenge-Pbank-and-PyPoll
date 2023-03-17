@@ -45,22 +45,23 @@ with open(budget_csv) as csvfile:
         row_count = row_count+1
 
         #Calulate total profit using the net_profit variable as the counter
-        month, net_profit = row[0], int(row[1])
         
-        net_profit += int(row[1])
-
-        #calculate the monthly change from the previous row(if it exists) 
-
                
+        net_profit += int(row[1])
+       
+
+        #calculate the monthly change from the previous row(if it exists)                
         cur_profit =  int(row[1])
         if prev_profit is not None:
             val_change = cur_profit - prev_profit
             total_change += val_change
 
         #print(val_change)
-        
 
-        
+   
+        #set variable to return the month for the maximum increase and decrease
+        month = row[0] 
+        #calculate maximum increase and decrease in monthly profits
         if val_change > max_increase:
             max_increase = val_change
             max_increase_month = month

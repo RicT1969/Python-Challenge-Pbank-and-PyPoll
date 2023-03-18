@@ -48,14 +48,32 @@ with open(election_csv) as csvfile:
     #check contents of candidates
     #print(candidates)
 
+        report =[
+            'Election Results',
+            '--------------------',
+            f'Total Votes: {total_votes}'
+            '--------------------',
+        ]
 #Dcalculate the percentage of votes each candidate received
 for candidate, vote_count in candidates.items():
-    percentage = vote_count / total_votes*100
+    percentage = round(vote_count / total_votes*100,3)
     candidates[candidate] = {'votes': vote_count, 'percentage':percentage}
+    report.append(f'{candidate}: {percentage}% ({vote_count})')
 
+  
 winner = max(candidates, key=lambda x: candidates[x]['votes'])
 
-print(winner)
+report += [
+    '--------------------',
+    f'winner: {winner}',
+    '--------------------'
+]
+
+for elect in report:
+    print(elect)
+
+
+#print(winner)
 
 print('Election Results')
 print("------------------------------------------")

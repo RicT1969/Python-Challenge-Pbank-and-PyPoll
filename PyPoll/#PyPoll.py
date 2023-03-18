@@ -51,7 +51,7 @@ with open(election_csv) as csvfile:
         report =[
             'Election Results',
             '--------------------',
-            f'Total Votes: {total_votes}'
+            f'Total Votes: {total_votes}',
             '--------------------',
         ]
 #Dcalculate the percentage of votes each candidate received
